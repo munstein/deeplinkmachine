@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Deeplink Machine</string>
+
+    <!-- Toast messages -->
+    <string name="toast_msg_deeplink_custom">Hello world, from a custom scheme deeplink.</string>
+    <string name="toast_msg_deeplink_app_link">Hello world, from an app link deeplink.</string>
+    <string name="toast_msg_deeplink_parameter">Hello world, from a deeplink and with parameter: %s.</string>
+</resources>
