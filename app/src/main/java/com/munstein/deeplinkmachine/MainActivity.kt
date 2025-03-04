@@ -48,20 +48,24 @@ class MainActivity : ComponentActivity() {
 
     private fun checkForDeeplink(intent: Intent){
         if(intent.dataString == DEEPLINK_DEMO_CUSTOM_SCHEME){
-            Toast.makeText(this, getString(R.string.toast_msg_deeplink_custom), Toast.LENGTH_SHORT).show()
+            showToast(R.string.toast_msg_deeplink_custom)
         }
 
         if(intent.dataString == DEEPLINK_DEMO_APP_LINK){
-            Toast.makeText(this, getString(R.string.toast_msg_deeplink_app_link), Toast.LENGTH_SHORT).show()
+            showToast(R.string.toast_msg_deeplink_app_link)
         }
 
         if(intent.dataString?.contains(DEEPLINK_DEMO_WITH_PATH_PARAMETER) == true) {
             val data = intent.data
             val parameter = data?.lastPathSegment
             parameter?.let {
-                Toast.makeText(this, getString(R.string.toast_msg_deeplink_parameter,parameter), Toast.LENGTH_SHORT).show()
+                showToast(R.string.toast_msg_deeplink_parameter, parameter)
             }
         }
+    }
+
+    private fun showToast(messageResId: Int, vararg formatArgs: Any) {
+        Toast.makeText(this, getString(messageResId, *formatArgs), Toast.LENGTH_SHORT).show()
     }
 
     private companion object {
